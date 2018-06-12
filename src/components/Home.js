@@ -1,26 +1,45 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
-export default class Home extends React.Component {
+const styles = {
+    root: {
+        flexGrow: 1,
+    },
+    flex: {
+        flex: 1,
+    },
+    menuButton: {
+        marginLeft: -12,
+        marginRight: 20,
+    },
+};
+
+class Home extends React.Component {
+
     render() {
-        const style = {
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }
-
+        const { classes } = this.props;
         return (
-            <div>
-                <div style={style}>
-                    <div>
-                        <div className={"container"}>
-                            <h2 className={"teal-text"}>Hello World</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae faucibus arcu, eu lacinia erat. Donec sit amet tristique nisi, vel tempor nisi. Aliquam erat volutpat. Praesent vestibulum lectus sem, quis malesuada libero scelerisque eget. In non dui et leo facilisis lacinia. Duis hendrerit pretium elit, a pharetra nibh imperdiet et. Fusce pulvinar ut velit ac scelerisque. Sed at volutpat felis. Ut a tincidunt nisl. Nulla viverra nulla pellentesque interdum lacinia. Suspendisse potenti.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div className={classes.root}>
+                <AppBar position="static">
+                    <Toolbar>
+                        {/*<IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+                            <MenuIcon />
+                        </IconButton>*/}
+                        <Typography variant="title" color="inherit" className={classes.flex}>
+                            Harshit Jain
+                        </Typography>
+                        {/*<Button color="inherit">Login</Button>*/}
+                    </Toolbar>
+                </AppBar>
             </div>
         );
     }
 }
+
+export default withStyles(styles)(Home);
